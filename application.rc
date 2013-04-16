@@ -1,0 +1,10 @@
+extern mod sdl;
+extern mod opengles;
+
+mod video;
+
+fn main() {
+	#[main];
+
+	video::main();
+}
