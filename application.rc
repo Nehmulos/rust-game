@@ -1,5 +1,6 @@
 extern mod sdl;
-extern mod opengles;
+//extern mod opengles;
+extern mod glcore;
 
 mod video;
 

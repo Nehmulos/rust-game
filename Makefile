@@ -1,5 +1,5 @@
 all:
-	rust build application.rc -L rust-sdl/ -L rust-opengles/ -o application
+	rust build application.rc -L rust-sdl/ -L glcore-rs/lib/ -o application
 
 opengles:
 	cd rust-opengles; make; cd ..

@@ -1,0 +1,2 @@
+Trying to get some Sprites displayed in OpenGL using SDL_IMG.
+Failing to link a proper OpenGL version atm
