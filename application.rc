@@ -2,10 +2,10 @@ extern mod sdl;
 //extern mod opengles;
 extern mod glcore;
 
-mod video;
+mod game;
 
 fn main() {
 	#[main];
 
-	video::main();
+	game::main();
 }
