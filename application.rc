@@ -1,6 +1,5 @@
 extern mod sdl;
-//extern mod opengles;
-extern mod glcore;
+extern mod opengles;
 
 mod game;
 

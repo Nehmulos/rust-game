@@ -1,6 +1,5 @@
 use sdl;
-//use opengles::gl2;
-use glcore;
+use opengles::gl2;
 use core::rand::RngUtil;
 
 pub fn main() {
@@ -12,12 +11,6 @@ pub fn main() {
 	
 	let imageLoadResult = sdl::img::load(&Path("images/test.png"));
 	let image : ~sdl::video::Surface = imageLoadResult.unwrap();
-	image.with_lock( |pixels| {
-    	unsafe {
-        	glcore::glTexImage2D(glcore::GL_TEXTURE_2D, 0, 3, image.get_width() as i32, image.get_height() as i32, 0, glcore::GL_BGRA, glcore::GL_BGRA, (*image.raw).pixels);	
-    	}
-		image.unlock();
-	});
 
 	
 	let mut screen = match sdl::video::set_video_mode(
@@ -26,7 +19,7 @@ pub fn main() {
 	    Ok(screen) => screen,
 	    Err(err) => fail!(fmt!("failed to set video mode: %s", err))
 	};
-    /*
+/*
     gl2::clear_color(1.0f32,0f32,0f32,1.0f32);
 
     // fucking mac support
