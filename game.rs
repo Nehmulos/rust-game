@@ -1,16 +1,17 @@
 use sdl;
 use opengles::gl2;
 use core::rand::RngUtil;
+//use Engine;
 
 pub fn main() {
     print("helloWorld");
     do sdl::start {
 	sdl::init([sdl::InitVideo]);
 	sdl::img::init([sdl::img::InitPNG]);
-	sdl::wm::set_caption("rust-sdl demo - video", "rust-sdl");
+        sdl::wm::set_caption("rust-sdl demo - video", "rust-sdl");
 	
 	let imageLoadResult = sdl::img::load(&Path("images/test.png"));
-	let image : ~sdl::video::Surface = imageLoadResult.unwrap();
+	//let image : ~sdl::video::Surface = imageLoadResult.unwrap();
 
 	
 	let mut screen = match sdl::video::set_video_mode(
@@ -39,6 +40,7 @@ pub fn main() {
     //gl2::glLoadIdentity();
     */
 	screen.flip();
+        let engine = engine::Engine.new();
 
 	loop main: {
 	    loop event: {
@@ -48,8 +50,8 @@ pub fn main() {
 		        _ => {}
 		    }
 	    }
-        //gl2::clear(gl2::COLOR_BUFFER_BIT);
-        sdl::video::swap_buffers();
+            //gl2::clear(gl2::COLOR_BUFFER_BIT);
+            sdl::video::swap_buffers();
 	}
 
 	sdl::quit();
