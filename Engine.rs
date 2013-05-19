@@ -1,12 +1,12 @@
-//use TextureCache::TextureCache;
-    struct Engine {
-        textureCache:&TextureCache::TextureCache
+mod TextureCache;
+    pub struct Engine {
+        textureCache:~TextureCache::TextureCache
     }
 
     impl Engine {
-        pub fn new() -> &Engine {
-            Engine {
-                textureEngine: TextureCache.new()
+        pub fn new() -> Engine {
+            return Engine {
+                textureCache: ~TextureCache::TextureCache::new()
             }
         } 
     }

@@ -1,7 +1,7 @@
 use sdl;
 use opengles::gl2;
 use core::rand::RngUtil;
-//use Engine;
+mod Engine;
 
 pub fn main() {
     print("helloWorld");
@@ -40,7 +40,9 @@ pub fn main() {
     //gl2::glLoadIdentity();
     */
 	screen.flip();
-        let engine = engine::Engine.new();
+        let mut engine = Engine::Engine::new();
+        print(fmt!("%d",engine.textureCache.load(~"images/rust-logo.png") as int));
+
 
 	loop main: {
 	    loop event: {
