@@ -1,6 +1,6 @@
-//use TextureCache;
+//use TextureCache::TextureCache;
     struct Engine {
-        textureCache:&TextureCache
+        textureCache:&TextureCache::TextureCache
     }
 
     impl Engine {
