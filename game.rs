@@ -1,6 +1,6 @@
 use sdl;
-use opengles::gl2;
-use core::rand::RngUtil;
+//use opengles::gl2;
+
 mod Engine;
 
 pub fn main() {
@@ -43,19 +43,6 @@ pub fn main() {
         let mut engine = Engine::Engine::new();
         print(fmt!("%d",engine.textureCache.load(~"images/rust-logo.png") as int));
 
-
-	loop main: {
-	    loop event: {
-		    match sdl::event::poll_event() {
-		        sdl::event::QuitEvent => break main,
-		        sdl::event::NoEvent => break event,
-		        _ => {}
-		    }
-	    }
-            //gl2::clear(gl2::COLOR_BUFFER_BIT);
-            sdl::video::swap_buffers();
-	}
-
-	sdl::quit();
+        engine.run();
     }
 }

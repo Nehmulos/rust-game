@@ -4,6 +4,7 @@ extern mod opengles;
 extern mod std;
 
 
+mod GameMode;
 mod TextureCache;
 mod Engine;
 
