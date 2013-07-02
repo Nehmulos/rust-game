@@ -24,11 +24,11 @@ impl Engine {
     }
 
     pub fn run(&self) -> int {
-        loop main: {
-	    loop event: {
+        loop {
+	    loop {
 		match sdl::event::poll_event() {
-		    sdl::event::QuitEvent => break main,
-		    sdl::event::NoEvent => break event,
+		    sdl::event::QuitEvent => return,
+		    sdl::event::NoEvent => break,
 		    _ => {}
 		}
 	    }
