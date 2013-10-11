@@ -1,8 +1,8 @@
-use sdl;
-use opengles::gl2;
+extern mod sdl;
 
 mod TextureCache;
 mod GameMode;
+
 pub struct Engine {
     textureCache:~TextureCache::TextureCache,
     mode:~GameMode::SpaceMode
@@ -27,17 +27,16 @@ impl Engine {
         loop {
 	    loop {
 		match sdl::event::poll_event() {
-		    sdl::event::QuitEvent => return,
+		    sdl::event::QuitEvent => return 0,
 		    sdl::event::NoEvent => break,
 		    _ => {}
 		}
 	    }
-            gl2::clear(gl2::COLOR_BUFFER_BIT);
             self.mode.update(10);
             self.mode.draw();
             sdl::video::swap_buffers();
 	}
-        self.uninit();
+        Engine::uninit();
         return 0;
     }
 }

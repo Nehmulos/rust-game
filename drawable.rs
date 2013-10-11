@@ -1,5 +1,4 @@
-pub mod drawable;
-pub enum Drawable {
+enum Drawable {
     Sprite(engine:&Engine, texture:&string);
 }
 

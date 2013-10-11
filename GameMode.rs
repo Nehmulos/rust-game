@@ -1,8 +1,8 @@
 
 trait GameMode {
-    pub fn new() -> Self;
-    pub fn update(&self,dt:int);
-    pub fn draw(&self);
+    fn new() -> Self;
+    fn update(&self,dt:int);
+    fn draw(&self);
 }
 
 pub struct SpaceMode {
