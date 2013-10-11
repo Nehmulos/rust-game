@@ -1,6 +1,5 @@
 extern mod sdl;
-
-mod Engine;
+mod engine;
 
 fn main() {
     print("helloWorld");
@@ -19,7 +18,7 @@ fn main() {
     };
 
     screen.flip();
-    let mut engine = Engine::Engine::new();
+    let mut engine = engine::Engine::new();
     print(fmt!("%d",engine.textureCache.load(~"images/rust-logo.png") as int));
 
     engine.run();

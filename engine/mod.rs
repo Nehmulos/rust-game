@@ -1,18 +1,21 @@
 extern mod sdl;
 
-mod TextureCache;
-mod GameMode;
+use self::texturecache::*;
+use self::gamemode::*;
+
+mod texturecache;
+mod gamemode;
 
 pub struct Engine {
-    textureCache:~TextureCache::TextureCache,
-    mode:~GameMode::SpaceMode
+    textureCache:~TextureCache,
+    mode:~SpaceMode
 }
 
 impl Engine {
     pub fn new() -> Engine {
         return Engine {
-            textureCache: ~TextureCache::TextureCache::new(),
-            mode: ~GameMode::SpaceMode::new()
+            textureCache: ~TextureCache::new(),
+            mode: ~SpaceMode::new()
         }
     }
 

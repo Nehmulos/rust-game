@@ -1,5 +1,5 @@
 all:
-	rust build game.rs -L rust-sdl/ -L rust-opengles/ -o application
+	rust build game.rc -L rust-sdl/ -L rust-opengles/ -o application
 
 opengles:
 	cd rust-opengles; make; cd ..
