@@ -1,10 +1,10 @@
 all:
-	rust build game.rc -L rust-sdl/ -L rust-opengles/ -o application
+	rust build game.rc -L rust-sdl2/ -L rust-opengles/ -o application
 
 opengles:
 	cd rust-opengles; make; cd ..
 sdl:
-	cd rust-sdl; make; cd ..
+	cd rust-sdl2; make; cd ..
 
 libs: | opengles sdl
 
