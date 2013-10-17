@@ -1,5 +1,5 @@
 all:
-	rustc build game.rc -L rust-sdl2/ -L rust-opengles/ -o application
+	rustc src/main.rs -L rust-sdl2/ -o application
 
 opengles:
 	cd rust-opengles; make; cd ..

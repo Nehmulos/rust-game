@@ -2,4 +2,4 @@
 application
 *.o
 .#*
-#*#
+#*#build
