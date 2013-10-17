@@ -1,5 +1,1 @@
-Trying to get some Sprites displayed in OpenGL using SDL_IMG.
-
-This is my first Rust + OpenGL ES project.
-It's your own fault if you use it as reference for anything, because I've got no
-idea what I'm doing here. It will most probably not even compile correctly
+trying to make a small game with sdl2 in rust. does not build atm due to dependency issues with rust-sdl2 and me not knowing the language at all
