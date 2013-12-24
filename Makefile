@@ -1,12 +1,13 @@
 all:
-	rustc src/main.rs -L rust-sdl2/ -o application
+	rustc src/main.rs -L nphysics/lib -L nphysics/examples/lib -L nphysics/ncollide/nalgebra/lib/ -L nphysics/ncollide/lib -o game
 
-opengles:
-	cd rust-opengles; make; cd ..
-sdl:
-	cd rust-sdl2; make; cd ..
+rsfml:
+	cd nphysics; make examples_deps; cd ..;
 
-libs: | opengles sdl
+nphysics:
+	cd nphysics; make; cd ..;
+
+libs: | nphysics csfml
 
 clean:
 	rm application

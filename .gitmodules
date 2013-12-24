@@ -1,3 +1,6 @@
 [submodule "rust-sdl2"]
 	path = rust-sdl2
 	url = https://github.com/AngryLawyer/rust-sdl2.git
+[submodule "nphysics"]
+	path = nphysics
+	url = https://github.com/sebcrozet/nphysics.git

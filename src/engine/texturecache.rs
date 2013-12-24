@@ -1,9 +1,9 @@
-extern mod sdl2;
+extern mod rsfml;
 use std::hashmap::HashMap;
-use std::path::PosixPath;
+pub use rsfml::graphics::texture::Texture;
 
 pub struct TextureCache {
-    textures: HashMap<~str, @sdl2::surface::Surface>
+    textures: HashMap<~str, @Texture>
 }
 
 impl TextureCache {
@@ -13,9 +13,11 @@ impl TextureCache {
         }
     }
 
-    pub fn load(& mut self, path:~str) -> @sdl2::surface::Surface {
-        let p = std::path::Path::new(path);
-        let s:@sdl2::surface::Surface = sdl2::surface::Surface::from_bmp(p);
+    pub fn load(& mut self, path:~str) -> @Texture {
+        let s:@Texture = match(Texture::new_from_file(path)) {
+            Some(t) => @t,
+            None => fail!("fugg no texture :DDD") // TODO use failsafe texture
+        };
         self.textures.insert(path, s);
         return s;
     }
