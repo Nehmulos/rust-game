@@ -1,6 +1,6 @@
 extern mod rsfml;
 
-use rsfml::window::{Window, VideoMode, ContextSettings};
+use rsfml::window::{Window, VideoMode, ContextSettings, event, keyboard};
 use rsfml::graphics::{RenderWindow, sfDefaultStyle};
 
 use self::texturecache::TextureCache;
@@ -17,7 +17,7 @@ pub struct Engine {
 
 impl Engine {
     pub fn new() -> Engine {
-        let window = match(RenderWindow::new(VideoMode::new_init(800, 600, 24), "bst gaem 4eva", sfDefaultStyle, &ContextSettings::default())) {
+        let window = match RenderWindow::new(VideoMode::new_init(800, 600, 24), "bst gaem 4eva", sfDefaultStyle, &ContextSettings::default()) {
             Some(v) => ~v,
             None() => fail!("fugg no window DDD:")
         };
@@ -28,21 +28,29 @@ impl Engine {
         };
     }
 
-    pub fn init(&self) {
+    pub fn init(& mut self) {
     }
 
-    pub fn uninit() {
+    pub fn uninit(& mut self) {
+        self.window.close();
     }
 
-    pub fn run(&self) -> int {
+    pub fn run(& mut self) -> int {
         'main: loop {
 	    'event: loop {
-	        break 'event;
+                match self.window.poll_event() {
+                    event::Closed => break 'main,
+                    event::KeyPressed{code, ..} => match code {
+                        keyboard::Escape => break 'main,
+                        _ => {}
+                    },
+                    _ => {}
+                }
             }
             self.mode.update(10);
             self.mode.draw();
 	}
-        Engine::uninit();
+        self.uninit();
         return 0;
     }
 }

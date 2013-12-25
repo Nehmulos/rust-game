@@ -10,7 +10,7 @@ fn main() {
     print("helloWorld");
     
     let mut engine = engine::Engine::new();
-    print(format!("{:?}",engine.textureCache.load(~"images/rust-logo.png")));
+    print(format!("{:?}\n",engine.textureCache.load(~"images/rust-logo.png")));
 
     engine.run();
 }
